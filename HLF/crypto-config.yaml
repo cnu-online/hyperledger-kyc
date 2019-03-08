@@ -1,0 +1,25 @@
+
+OrdererOrgs:
+  - Name: Orderer
+    Domain: kyc.com
+    Specs:
+      - Hostname: orderer
+PeerOrgs:
+  - Name: bnk1
+    Domain: bnk1.kyc.com
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+  - Name: bnk2
+    Domain: bnk2.kyc.com
+    Template:
+      Count: 1
+    Users:
+      Count: 1
+  - Name: rgl1
+    Domain: rgl1.kyc.com
+    Template:
+      Count: 1
+    Users:
+      Count: 1

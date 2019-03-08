@@ -1,0 +1,42 @@
+{
+    "users": [
+        {
+            "username": "bnk1user",
+            "password": "bnk1user",
+            "org": "bnk1"
+        },
+        {
+            "username": "bnk2user",
+            "password": "bnk2user",
+            "org": "bnk2"
+        },
+        {
+            "username": "rgl1user",
+            "password": "rgl1user",
+            "org": "rgl1"
+        }
+    ],
+    "orgs": [
+        {
+            "org": "bnk1",
+            "orgName": "Bank1",
+            "msp": "bnk1msp",
+            "orgType": "bnk",
+            "peer": {}
+        },
+        {
+            "org": "bnk1",
+            "orgName": "Bank2",
+            "msp": "bnk2msp",
+            "orgType": "bnk",
+            "peer": {}
+        },
+        {
+            "org": "rgl1",
+            "orgName": "Regulator1",
+            "msp": "rgl1msp",
+            "orgType": "rgl",
+            "peer": {}
+        }
+    ]
+}

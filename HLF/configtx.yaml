@@ -1,0 +1,61 @@
+Organizations:
+    - &OrdererOrg
+        Name: OrdererOrg
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/kyc.com/msp
+    - &bnk1
+        Name: bnk1msp
+        ID: bnk1msp
+        MSPDir: crypto-config/peerOrganizations/bnk1.kyc.com/msp
+        AnchorPeers:
+            - Host: peer0.bnk1.kyc.com
+              Port: 5051
+    - &bnk2
+        Name: bnk2msp
+        ID: bnk2msp
+        MSPDir: crypto-config/peerOrganizations/bnk2.kyc.com/msp
+        AnchorPeers:
+            - Host: peer0.bnk2.kyc.com
+              Port: 6051 
+    - &rgl1
+        Name: rgl1msp
+        ID: rgl1msp
+        MSPDir: crypto-config/peerOrganizations/rgl1.kyc.com/msp
+        AnchorPeers:
+            - Host: peer0.rgl1.kyc.com
+              Port: 7051
+Application: &ApplicationDefaults
+    Organizations:
+Orderer: &OrdererDefaults
+    OrdererType: solo
+    Addresses:
+        - orderer.kyc.com:7050
+    BatchTimeout: 20s
+    BatchSize:
+        MaxMessageCount: 10
+        AbsoluteMaxBytes: 99 MB
+        PreferredMaxBytes: 512 KB
+    Kafka:
+        Brokers:
+            - 127.0.0.1:9092
+    Organizations:
+Profiles:
+    KycOrdererGenesis:
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+        Consortiums:
+            KycConsortium:
+                Organizations:
+                    - *bnk1
+                    - *bnk2
+                    - *rgl1
+    KycChannel:
+        Consortium: KycConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *bnk1
+                - *bnk2
+                - *rgl1
