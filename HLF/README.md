@@ -1,12 +1,13 @@
-## fabcar Network Config
+## Hyperledger-Hyc Network Config
 
 Note that this basic configuration uses pre-generated certificates and
 key material, and also has predefined transactions to initialize a 
 channel named "commonchannel".
 
-first run the following command in 'TFServer' folder
+first run the following command in 'Integration' folder
 ```
 npm install
+cd HLF
 ```
 To regenerate this material, simply run ``generate.sh``.
 
